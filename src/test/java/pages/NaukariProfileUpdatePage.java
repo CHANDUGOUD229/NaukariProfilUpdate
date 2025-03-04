@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import utility.GenericMethods;
 
 import java.awt.*;
@@ -46,6 +47,8 @@ public class NaukariProfileUpdatePage extends GenericMethods {
     WebElement profileImg;
     @FindBy(xpath = "//a[@class='nI-gNb-list-cta' and .='Logout']")
     WebElement logoutButton;
+    @FindBy(xpath = "//div[@title='chandra_AutomationExp_5yrs.pdf']")
+    WebElement successText;
 
     @FindBy(xpath = "//input[@class='dummyUpload typ-14Bold']")
     WebElement fileUpload;
@@ -83,15 +86,18 @@ public class NaukariProfileUpdatePage extends GenericMethods {
         click(viewProfile);
         writeLogInfo("user clicked on the view profile button ");
 
-        click(keySkillsLink);
-        writeLogInfo("user clicked on menu keySkill  Link ");
-
     }
 
 
     public void fileUpload() throws AWTException, InterruptedException {
 
-        uploadFileUsingClipboard(fileUpload, ".//src//test//resources//testDataFiles//Resume_chandu_5+years.pdf");
+        Thread.sleep(10000);
+        fileUpload.click();
+        writeLogInfo("user clicked on fil upload button ");
+        uploadFileUsingClipboard("file:///D:/Resume/chandra_AutomationExp_5+yrs.pdf");
+        highlight(successText);
+        Assert.assertTrue(successText.isDisplayed(),"success Text not displayed");
+
 
     }
 
@@ -109,7 +115,6 @@ public class NaukariProfileUpdatePage extends GenericMethods {
                     clickWithJS(editKeySkills);
                     clickWithJS(crossMark);
                     clickWithJS(saveBtn);
-                    System.out.println("skill deleted");
                     // Adding a wait to allow the UI to update before continuing
                     Thread.sleep(2000);
                 } else {
@@ -125,7 +130,6 @@ public class NaukariProfileUpdatePage extends GenericMethods {
             // Click outside to confirm
             getDriver().findElement(By.xpath("//html")).click();
             clickWithJS(saveBtn);
-            System.out.println("added new skill");
             // Adding a delay before the next iteration
             Thread.sleep(2000);
         }

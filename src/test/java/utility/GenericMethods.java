@@ -190,10 +190,9 @@ public class GenericMethods extends DriverFactory {
                 wait.until(ExpectedConditions.visibilityOf(element));
                 visibility = true;
                 if (visibility) {
-                    System.out.println(element + " is visible");
                     break;
                 } else {
-                    System.out.println(element + " is not visible after trying with 60 seconds ");
+                    System.out.println(" is not visible after trying with 60 seconds ");
                 }
             }
         } catch (NoSuchElementException e) {
@@ -1020,9 +1019,7 @@ public class GenericMethods extends DriverFactory {
         getDriver().switchTo().newWindow(WindowType.TAB);
     }
 
-    public static void uploadFileUsingClipboard(WebElement element, String filePath) throws AWTException, InterruptedException {
-        Thread.sleep(3000);
-        element.click();
+    public static void uploadFileUsingClipboard(String filePath) throws AWTException, InterruptedException {
         Thread.sleep(3000);
         StringSelection stringSelection = new StringSelection(filePath);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -1034,8 +1031,10 @@ public class GenericMethods extends DriverFactory {
         // Simulate releasing Ctrl + V
         robot.keyRelease(KeyEvent.VK_V);
         robot.keyRelease(KeyEvent.VK_CONTROL);
-        robot.keyPress(KeyEvent.VK_ENTER);
 
+        robot.keyPress(KeyEvent.VK_ENTER);
+        System.out.println("file uploaded successfully");
+        Thread.sleep(10000);
         // Optional: Add a short delay for paste action to complete
         robot.delay(500);
     }

@@ -5,7 +5,7 @@ Feature: update Naukari profile
     Given User is on Naukri login page
     When User enters valid credentials and click on login
     And User navigates to profile section and click on key Skills
+    And User uploads a new resume
     And User updates key skills
-#    And User uploads a new resume
     Then user logout
 
