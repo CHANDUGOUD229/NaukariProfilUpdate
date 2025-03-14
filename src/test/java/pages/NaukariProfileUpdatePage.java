@@ -47,7 +47,7 @@ public class NaukariProfileUpdatePage extends GenericMethods {
     WebElement profileImg;
     @FindBy(xpath = "//a[@class='nI-gNb-list-cta' and .='Logout']")
     WebElement logoutButton;
-    @FindBy(xpath = "//div[@title='chandra_AutomationExp_5yrs.pdf']")
+    @FindBy(xpath = "//div[@title='Automation_5.5yrs.pdf']")
     WebElement successText;
 
     @FindBy(xpath = "//input[@class='dummyUpload typ-14Bold']")
@@ -91,10 +91,10 @@ public class NaukariProfileUpdatePage extends GenericMethods {
 
     public void fileUpload() throws AWTException, InterruptedException {
 
-        Thread.sleep(10000);
+        Thread.sleep(5000);
         fileUpload.click();
         writeLogInfo("user clicked on fil upload button ");
-        uploadFileUsingClipboard("file:///D:/Resume/chandra_AutomationExp_5+yrs.pdf");
+        uploadFileUsingClipboard("file:///D:/Resume/Automation_5.5yrs.pdf");
         highlight(successText);
         Assert.assertTrue(successText.isDisplayed(),"success Text not displayed");
 
@@ -109,7 +109,7 @@ public class NaukariProfileUpdatePage extends GenericMethods {
 
 
     public void updateKeySkills() throws InterruptedException {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 8; i++) {
             try {
                 if (isGitTextIsDisplaying.isDisplayed()) {
                     clickWithJS(editKeySkills);
