@@ -19,9 +19,9 @@
         <span class="ms-3 fs-6">Naukari profile update</span>
       </div>
       <div>
-        <span class="badge badge-outline text-lg"><i class="bi bi-hourglass me-1"></i> 2m 19s</span>
-        <span class="badge badge-outline text-lg"><i class="bi bi-clock me-1 text-success"></i> 14_Mar_25 13 07 20</span>
-        <span class="badge badge-outline text-lg me-3"><i class="bi bi-clock me-1 text-danger"></i> 14_Mar_25 13 09 40</span>
+        <span class="badge badge-outline text-lg"><i class="bi bi-hourglass me-1"></i> 1m 28s</span>
+        <span class="badge badge-outline text-lg"><i class="bi bi-clock me-1 text-success"></i> 15_Mar_25 14 24 45</span>
+        <span class="badge badge-outline text-lg me-3"><i class="bi bi-clock me-1 text-danger"></i> 15_Mar_25 14 26 13</span>
           <button role="button" id="sys-info" class="btn btn-outline-primary smaller" title="View System Info">
             <i class="bi bi-pc-display-horizontal"></i></button>
         <button role="button" id="shortcuts" class="btn btn-outline-primary smaller" title="Shortcuts">
@@ -80,7 +80,7 @@
                   </div>
                 </div>
                 <div class="card-footer small">
-                  <span id="sp3">6</span> Passed,
+                  <span id="sp3">10</span> Passed,
                   <span id="sf3">0</span> Failed,
                   <span id="ss3">0</span> Skipped
                 </div>
@@ -112,13 +112,13 @@
         <div class="container">
           <div class="row">
             <div class="col-4">
-              <h6 class="mb-3 testname fs-6 passed">Feature: update Naukari profile</h6>
+              <h6 class="mb-3 testname fs-6 passed">Feature: Update Naukri Profile</h6>
               <div class="small">
-                <span class="badge badge-outline"><i class="bi bi-hourglass me-1"></i> 11ms</span>
+                <span class="badge badge-outline"><i class="bi bi-hourglass me-1"></i> 32ms</span>
                 <span class="badge text-bg-info"><i class="bi bi-clock me-1"></i>
-                  14_Mar_25 13 09 40</span>
+                  15_Mar_25 14 26 13</span>
                 <span class="badge text-bg-warning"><i class="bi bi-clock me-1"></i>
-                  14_Mar_25 13 09 40</span>
+                  15_Mar_25 14 26 13</span>
               </div>
               
             </div>
@@ -128,57 +128,85 @@
                     <div class="d-flex justify-content-between">
                       <div>
                           <i class="bi bi-check-circle-fill text-success"></i>
-                        <span class="fs-6 ms-2">Scenario: Login to Naukri and update profile</span>
+                        <span class="fs-6 ms-2">Scenario: Successfully update Naukri profile with a new resume and key skills</span>
                       </div>
                       <div>
-                        <span class="badge text-dark bg-light">11ms</span>
+                        <span class="badge text-dark bg-light">20ms</span>
                       </div>
                     </div>
                     
   <div class="mt-2">
         <div class="mt-1 pb-1">
             <i class="bi bi-check-circle-fill text-success"></i>
-          <span class="ms-2">Given User is on Naukri login page</span>
+          <span class="ms-2">Given The user is on the Naukri login page</span>
         </div>
         <div class="mt-1 pb-1">
             <i class="bi bi-check-circle-fill text-success"></i>
-          <span class="ms-2">When User enters valid credentials and click on login</span>
+          <span class="ms-2">When The user logs in with valid credentials</span>
         </div>
         <div class="mt-1 pb-1">
             <i class="bi bi-check-circle-fill text-success"></i>
-          <span class="ms-2">And User navigates to profile section and click on key Skills</span>
+          <span class="ms-2">Then The user should be redirected to the homepage</span>
         </div>
         <div class="mt-1 pb-1">
             <i class="bi bi-check-circle-fill text-success"></i>
-          <span class="ms-2">And User uploads a new resume</span>
+          <span class="ms-2">And The user deletes the existing resume</span>
         </div>
         <div class="mt-1 pb-1">
             <i class="bi bi-check-circle-fill text-success"></i>
-          <span class="ms-2">And User updates key skills</span>
+          <span class="ms-2">Then The user should see a confirmation message for successful deletion</span>
         </div>
         <div class="mt-1 pb-1">
             <i class="bi bi-check-circle-fill text-success"></i>
-          <span class="ms-2">Then user logout</span>
+          <span class="ms-2">When The user uploads a new resume</span>
+        </div>
+        <div class="mt-1 pb-1">
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="ms-2">Then The user should see a success message confirming the upload</span>
+        </div>
+        <div class="mt-1 pb-1">
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="ms-2">When The user updates the key skills</span>
+        </div>
+        <div class="mt-1 pb-1">
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="ms-2">Then The user should see a confirmation that the key skills have been updated</span>
+        </div>
+        <div class="mt-1 pb-1">
+            <i class="bi bi-check-circle-fill text-success"></i>
+          <span class="ms-2">And The user logs out successfully</span>
         </div>
   </div>
                       <div class="row mt-3">
                           <div class="embed col-2 mb-1">
-                            <img src="resources/2a337d67-69c3-4586-b564-c963660f01e1.png" />
+                            <img src="resources/6ace5758-e7c3-4a8a-98de-6807499b8c58.png" />
                           </div>
                           <div class="embed col-2 mb-1">
-                            <img src="resources/7b3d7255-d8bc-419a-b475-41042829b43d.png" />
+                            <img src="resources/23fa281e-2f2f-4b2c-94d6-c92ac128b957.png" />
                           </div>
                           <div class="embed col-2 mb-1">
-                            <img src="resources/5ea78150-43c1-4ff7-b913-989cd48541f6.png" />
+                            <img src="resources/84588833-a271-4a96-ba26-1a9bd2633a2d.png" />
                           </div>
                           <div class="embed col-2 mb-1">
-                            <img src="resources/963c716f-893d-4635-abdc-ed754b68f256.png" />
+                            <img src="resources/f48080d4-6c34-4066-88d2-de03e25a73e1.png" />
                           </div>
                           <div class="embed col-2 mb-1">
-                            <img src="resources/3521b6e8-0013-403e-9087-1f97a9942920.png" />
+                            <img src="resources/354c6144-2211-46c0-ba71-f454d3af40f7.png" />
                           </div>
                           <div class="embed col-2 mb-1">
-                            <img src="resources/b287366d-10d2-44eb-8e12-4ef407c9d7bc.png" />
+                            <img src="resources/2a5eb74a-6c4c-4ea7-b3e9-7387da1d11f0.png" />
+                          </div>
+                          <div class="embed col-2 mb-1">
+                            <img src="resources/a553bb5e-e617-4a68-9a9d-5eee548c5515.png" />
+                          </div>
+                          <div class="embed col-2 mb-1">
+                            <img src="resources/09f50cf8-6644-4993-9889-96a816801026.png" />
+                          </div>
+                          <div class="embed col-2 mb-1">
+                            <img src="resources/b1e669ae-cfb8-4561-bf2d-c21f6269b925.png" />
+                          </div>
+                          <div class="embed col-2 mb-1">
+                            <img src="resources/db0e0088-ce6c-43d2-91e9-b72529f31ee4.png" />
                           </div>
                       </div>
                   </div>
@@ -203,9 +231,9 @@
         { result: 'Failed', count: 0, bg: 'rgb(233,80,113)' },
         { result: 'Skipped', count: 0, bg: 'rgb(221, 91, 96)' }
       ];
-      const stats3Annotation = {'total': 6, 'passed': 6};
+      const stats3Annotation = {'total': 10, 'passed': 10};
       const stats3 = [
-        { result: 'Passed', count: 6, bg: 'rgb(140, 197, 83)' },
+        { result: 'Passed', count: 10, bg: 'rgb(140, 197, 83)' },
         { result: 'Failed', count: 0, bg: 'rgb(233,80,113)' },
         { result: 'Skipped', count: 0, bg: 'rgb(221, 91, 96)' }
       ];
@@ -287,12 +315,12 @@
                   <td>Toggle skipped tests</td>
                 </tr>
                 <tr>
-                  <td>L</td>
-                  <td>Toggle theme (light/dark)</td>
-                </tr>
-                <tr>
                   <td>esc</td>
                   <td>Reset all filters</td>
+                </tr>
+                <tr>
+                  <td>L</td>
+                  <td>Toggle theme (light/dark)</td>
                 </tr>
                 <tr>
                   <td>f</td>

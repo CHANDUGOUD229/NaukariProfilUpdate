@@ -50,7 +50,7 @@ public class NaukariProfileUpdatePage extends GenericMethods {
     @FindBy(xpath = "//div[@title='Automation_5.5yrs.pdf']")
     WebElement successText;
 
-    @FindBy(xpath = "//input[@class='dummyUpload typ-14Bold']")
+    @FindBy(xpath = "//span[@class='dummyUploadNewCTA']")
     WebElement fileUpload;
 
     @FindBy(xpath = "//div[@class='truncate exten']")
@@ -67,19 +67,47 @@ public class NaukariProfileUpdatePage extends GenericMethods {
     @FindBy(xpath = "//ul[@class='Sdrop']/li/div")
     List<WebElement> searchSuggestions;
 
+    @FindBy(xpath = "//i[.='deleteOneTheme']")
+    WebElement deleteResumeImg;
+    @FindBy(xpath = "//*[.='Resume has been successfully uploaded.']")
+    WebElement resumeUploadedSuccessfully;
+    @FindBy(xpath = "//*[.='Attached Resume has been successfully deleted.']")
+    WebElement resumeDeletedSuccessfully;
+
+    @FindBy(xpath = "//div[@class='action right-align']/following::button[@class='btn-dark-ot']")
+    WebElement deleteBtn;
+    @FindBy(xpath = "//*[.='Key Skills have been successfully saved.']")
+    WebElement keySkillsSaved;
 
     public void enterLoginDetails() {
         writeLogInfo("user landed on login page");
         waitForElementTobeEnterText(email, getProperty("username"));
         writeLogInfo("user entered user name ");
-
-        assertElementDisplayed(email, email + "Element not Displaying");
         waitForElementTobeEnterText(passWord, getProperty("password"));
         writeLogInfo("user entered passWord ");
-        assertElementDisplayed(passWord, passWord + "Element not Displaying");
         click(loginBtn);
         writeLogInfo("user clicked on the login button");
 
+    }
+
+    public void deleteResumeImg() {
+
+        new WebDriverWait(getDriver(), Duration.ofSeconds(20))
+                .until(ExpectedConditions.elementToBeClickable(deleteResumeImg));
+        clickWithJS(deleteResumeImg);
+        new WebDriverWait(getDriver(), Duration.ofSeconds(20))
+                .until(ExpectedConditions.elementToBeClickable(deleteBtn));
+        clickWithJS(deleteBtn);
+    }
+
+    public void validateDeletedSuccessfully() {
+
+        assertEqualsText(resumeDeletedSuccessfully, "Attached Resume has been successfully deleted.");
+    }
+
+
+    public void validateKeySkillSuccessMsg() {
+        assertEqualsText(keySkillsSaved, "Key Skills have been successfully saved.");
     }
 
     public void clickOnKeySkillLink() {
@@ -91,13 +119,19 @@ public class NaukariProfileUpdatePage extends GenericMethods {
 
     public void fileUpload() throws AWTException, InterruptedException {
 
-        Thread.sleep(5000);
+        new WebDriverWait(getDriver(), Duration.ofSeconds(20))
+                .until(ExpectedConditions.elementToBeClickable(fileUpload));
         fileUpload.click();
         writeLogInfo("user clicked on fil upload button ");
         uploadFileUsingClipboard("file:///D:/Resume/Automation_5.5yrs.pdf");
-        highlight(successText);
-        Assert.assertTrue(successText.isDisplayed(),"success Text not displayed");
+        new WebDriverWait(getDriver(), Duration.ofSeconds(20))
+                .until(ExpectedConditions.visibilityOf(resumeUploadedSuccessfully));
+        assertEqualsText(resumeUploadedSuccessfully, "Resume has been successfully uploaded.");
 
+    }
+
+    public void validateResumeUploadedSuccessfully() {
+        assertEqualsText(successText, "Automation_5.5yrs.pdf");
 
     }
 
@@ -109,7 +143,7 @@ public class NaukariProfileUpdatePage extends GenericMethods {
 
 
     public void updateKeySkills() throws InterruptedException {
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 2; i++) {
             try {
                 if (isGitTextIsDisplaying.isDisplayed()) {
                     clickWithJS(editKeySkills);
@@ -119,19 +153,23 @@ public class NaukariProfileUpdatePage extends GenericMethods {
                     Thread.sleep(2000);
                 } else {
                     System.out.println("Git skill is not displayed, adding it...");
+
                 }
             } catch (NoSuchElementException e) {
                 System.out.println("Element not found, proceeding to add GIT skill.");
+            } finally {
+                System.out.println("adding skill " + i + " time");
+                // Add GIT skill
+                clickWithJS(editKeySkills);
+                addNewSkill.sendKeys("GIT");
+                // Click outside to confirm
+                getDriver().findElement(By.xpath("//html")).click();
+                clickWithJS(saveBtn);
+                // Adding a delay before the next iteration
+                Thread.sleep(2000);
             }
 
-            // Add GIT skill
-            clickWithJS(editKeySkills);
-            addNewSkill.sendKeys("GIT");
-            // Click outside to confirm
-            getDriver().findElement(By.xpath("//html")).click();
-            clickWithJS(saveBtn);
-            // Adding a delay before the next iteration
-            Thread.sleep(2000);
+
         }
     }
 

@@ -264,8 +264,7 @@ public class GenericMethods extends DriverFactory {
      * @param element
      * @param text
      */
-    public static void
-    waitForElementTobeEnterText(WebElement element, String text) {
+    public static void waitForElementTobeEnterText(WebElement element, String text) {
         int maxAttempts = 5;
         int minattempts = 0;
         boolean visibility = false;
@@ -349,7 +348,7 @@ public class GenericMethods extends DriverFactory {
      * @param element
      */
     public static void assrtHighlight(WebElement element) {
-        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].setAttribute('style', 'background: red; border: 2px solid red;');", element);
+        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].setAttribute('style', 'background: green; border: 2px solid red;');", element);
     }
 
     /**
@@ -1031,12 +1030,10 @@ public class GenericMethods extends DriverFactory {
         // Simulate releasing Ctrl + V
         robot.keyRelease(KeyEvent.VK_V);
         robot.keyRelease(KeyEvent.VK_CONTROL);
-
         robot.keyPress(KeyEvent.VK_ENTER);
+//        robot.setAutoDelay(2000);
         System.out.println("file uploaded successfully");
-        Thread.sleep(10000);
-        // Optional: Add a short delay for paste action to complete
-        robot.delay(500);
+
     }
 
 
