@@ -141,36 +141,36 @@ public class NaukariProfileUpdatePage extends GenericMethods {
         click(logoutButton);
     }
 
+    private void addSkill(String skill) throws InterruptedException {
+        clickWithJS(editKeySkills);
+        addNewSkill.sendKeys(skill);
+        getDriver().findElement(By.xpath("//html")).click(); // Confirm skill addition
+        clickWithJS(saveBtn);
+        Thread.sleep(2000); // Allow UI update
+    }
+
+    private void removeExistingSkill() throws InterruptedException {
+        clickWithJS(editKeySkills);
+        clickWithJS(crossMark);
+        clickWithJS(saveBtn);
+        Thread.sleep(2000); // Allow UI update
+    }
 
     public void updateKeySkills() throws InterruptedException {
-        for (int i = 0; i < 2; i++) {
             try {
                 if (isGitTextIsDisplaying.isDisplayed()) {
-                    clickWithJS(editKeySkills);
-                    clickWithJS(crossMark);
-                    clickWithJS(saveBtn);
-                    // Adding a wait to allow the UI to update before continuing
-                    Thread.sleep(2000);
+                    System.out.println("Git skill is displayed, removing it...");
+                    removeExistingSkill();
                 } else {
                     System.out.println("Git skill is not displayed, adding it...");
-
                 }
             } catch (NoSuchElementException e) {
                 System.out.println("Element not found, proceeding to add GIT skill.");
-            } finally {
-                System.out.println("adding skill " + i + " time");
-                // Add GIT skill
-                clickWithJS(editKeySkills);
-                addNewSkill.sendKeys("GIT");
-                // Click outside to confirm
-                getDriver().findElement(By.xpath("//html")).click();
-                clickWithJS(saveBtn);
-                // Adding a delay before the next iteration
-                Thread.sleep(2000);
             }
+            addSkill("GIT");
 
-
-        }
     }
 
-}
+
+
+ }
