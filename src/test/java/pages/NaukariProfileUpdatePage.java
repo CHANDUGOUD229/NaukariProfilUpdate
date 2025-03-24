@@ -146,6 +146,7 @@ public class NaukariProfileUpdatePage extends GenericMethods {
         addNewSkill.sendKeys(skill);
         getDriver().findElement(By.xpath("//html")).click(); // Confirm skill addition
         clickWithJS(saveBtn);
+        writeLogInfo("Skill added successfully");
         Thread.sleep(2000); // Allow UI update
     }
 
@@ -153,19 +154,21 @@ public class NaukariProfileUpdatePage extends GenericMethods {
         clickWithJS(editKeySkills);
         clickWithJS(crossMark);
         clickWithJS(saveBtn);
+        writeLogInfo("Skill removed successfully");
         Thread.sleep(2000); // Allow UI update
     }
 
     public void updateKeySkills() throws InterruptedException {
             try {
                 if (isGitTextIsDisplaying.isDisplayed()) {
-                    System.out.println("Git skill is displayed, removing it...");
+
+                    writeLogInfo("skill is displayed, removing it...");
                     removeExistingSkill();
                 } else {
-                    System.out.println("Git skill is not displayed, adding it...");
+                    writeLogInfo("skill is not displayed, adding it...");
                 }
             } catch (NoSuchElementException e) {
-                System.out.println("Element not found, proceeding to add GIT skill.");
+                writeLogInfo("Element not found, proceeding to add  skill.");
             }
             addSkill("GIT");
 
