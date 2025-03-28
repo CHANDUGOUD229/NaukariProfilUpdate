@@ -15,6 +15,8 @@ import io.cucumber.testng.CucumberOptions;
                 "html:target/cucumber-reports/Cucumber.html", // Generates HTML report
                 "com.aventstack.chaintest.plugins.ChainTestCucumberListener:",
                 "rerun:target/failedRerun.txt" // it will create the file for failed scenarios
+
+
         })
 public class TestRunner extends AbstractTestNGCucumberTests {
 
