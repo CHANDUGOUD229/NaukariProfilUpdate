@@ -1,4 +1,5 @@
 package stepDefinition;
+
 import com.aventstack.chaintest.plugins.ChainTestCucumberListener;
 import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
@@ -7,6 +8,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import utility.DriverFactory;
 import utility.GenericMethods;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,6 +33,7 @@ public class Hooks extends DriverFactory {
 
     /**
      * For TestNg use
+     *
      * @throws IOException
      */
     @BeforeTest
@@ -43,10 +46,11 @@ public class Hooks extends DriverFactory {
 
     /**
      * attaching screenshot for each success scenario
+     *
      * @param scenario
      */
     @AfterStep
-    public void attachScreenshotForSuccess(Scenario scenario){
+    public void attachScreenshotForSuccess(Scenario scenario) {
         GenericMethods gm = new GenericMethods();
         try {
             if (!scenario.isFailed()) {
@@ -61,6 +65,7 @@ public class Hooks extends DriverFactory {
 
     /**
      * For TestNg
+     *
      * @param scenario
      */
     @AfterTest
