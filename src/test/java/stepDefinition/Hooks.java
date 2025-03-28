@@ -41,18 +41,22 @@ public class Hooks extends DriverFactory {
 
     }
 
-    @AfterStep
-    public void attachScreenshotForSuccess(Scenario scenario){
-        GenericMethods gm = new GenericMethods();
-        try {
-            if (!scenario.isFailed()) {
-                final byte[] screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
-                scenario.attach(screenshot, "image/png", scenario.getName());
-            }
-        } catch (Exception chandu_pasha) {
-            System.err.println("Facing issue while capturing ScreenShot : " + chandu_pasha);
-        }
-    }
+    /**
+     * attaching screenshot for each success scenario
+     * @param scenario
+     */
+//    @AfterStep
+//    public void attachScreenshotForSuccess(Scenario scenario){
+//        GenericMethods gm = new GenericMethods();
+//        try {
+//            if (!scenario.isFailed()) {
+//                final byte[] screenshot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
+//                scenario.attach(screenshot, "image/png", scenario.getName());
+//            }
+//        } catch (Exception e) {
+//            System.err.println("Facing issue while capturing ScreenShot : " + e);
+//        }
+//    }
 
 
     /**

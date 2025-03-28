@@ -139,6 +139,7 @@ public class NaukariProfileUpdatePage extends GenericMethods {
         Thread.sleep(6000);
         clickWithJS(profileImg);
         click(logoutButton);
+        writeLogInfo("logout Successfully");
     }
 
     private void addSkill(String skill) throws InterruptedException {
@@ -148,7 +149,6 @@ public class NaukariProfileUpdatePage extends GenericMethods {
         clickWithJS(saveBtn);
         validateKeySkillSuccessMsg();
         writeLogInfo("Skill added successfully");
-
     }
 
     private void removeExistingSkill() throws InterruptedException {
@@ -160,18 +160,17 @@ public class NaukariProfileUpdatePage extends GenericMethods {
     }
 
     public void updateKeySkills() throws InterruptedException {
-        try {
-            if (isGitTextIsDisplaying.isDisplayed()) {
-
-                writeLogInfo("skill is displayed, removing it...");
-                removeExistingSkill();
-            } else {
-                writeLogInfo("skill is not displayed, adding it...");
+        for (int i = 0; i <2; i++) {
+            try {
+                if (isGitTextIsDisplaying.isDisplayed()) {
+                    writeLogInfo("skill is displayed, removing it...");
+                    removeExistingSkill();
+                }
+            } catch (NoSuchElementException e) {
+                writeLogInfo("Element not found, proceeding to add  skill.");
             }
-        } catch (NoSuchElementException e) {
-            writeLogInfo("Element not found, proceeding to add  skill.");
+            addSkill("GIT");
         }
-        addSkill("GIT");
 
     }
 
