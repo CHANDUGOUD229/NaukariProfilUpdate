@@ -101,7 +101,6 @@ public class NaukariProfileUpdatePage extends GenericMethods {
     }
 
     public void validateDeletedSuccessfully() {
-
         assertEqualsText(resumeDeletedSuccessfully, "Attached Resume has been successfully deleted.");
     }
 
@@ -118,7 +117,6 @@ public class NaukariProfileUpdatePage extends GenericMethods {
 
 
     public void fileUpload() throws AWTException, InterruptedException {
-
         new WebDriverWait(getDriver(), Duration.ofSeconds(20))
                 .until(ExpectedConditions.elementToBeClickable(fileUpload));
         fileUpload.click();
