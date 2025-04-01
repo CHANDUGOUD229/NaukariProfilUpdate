@@ -1,6 +1,6 @@
 Feature: Update Naukri Profile
 
-  Scenario: Successfully update Naukri profile with a new resume and key skills
+  Scenario: Successfully update Naukri profile by updating key skills
     Given The user is on the Naukri login page
     When  The user logs in with valid credentials
     Then  The user should be redirected to the homepage
