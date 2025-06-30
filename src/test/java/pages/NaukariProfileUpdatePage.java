@@ -1,20 +1,11 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import utility.GenericMethods;
-
-import java.awt.*;
-import java.time.Duration;
 import java.util.List;
-
-import static utility.GenericMethods.*;
 
 public class NaukariProfileUpdatePage extends GenericMethods {
 

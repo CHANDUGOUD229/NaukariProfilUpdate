@@ -1,6 +1,5 @@
 package stepDefinition;
 
-import com.github.javafaker.Faker;
 import io.cucumber.java.en.*;
 import pages.*;
 import utility.DriverFactory;
