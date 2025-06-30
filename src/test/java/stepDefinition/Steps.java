@@ -5,8 +5,6 @@ import pages.*;
 import utility.DriverFactory;
 import utility.GenericMethods;
 
-import java.awt.*;
-
 
 public class Steps extends DriverFactory {
     NaukariProfileUpdatePage np;

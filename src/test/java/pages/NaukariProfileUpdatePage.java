@@ -1,5 +1,6 @@
 package pages;
 
+import org.apache.commons.math3.analysis.function.Add;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -47,35 +48,15 @@ public class NaukariProfileUpdatePage extends GenericMethods {
     WebElement profileImg;
     @FindBy(xpath = "//a[@class='nI-gNb-list-cta' and .='Logout']")
     WebElement logoutButton;
-    @FindBy(xpath = "//div[@title='Automation_5.5yrs.pdf']")
-    WebElement successText;
 
-    @FindBy(xpath = "//span[@class='dummyUploadNewCTA']")
-    WebElement fileUpload;
-
-    @FindBy(xpath = "//div[@class='truncate exten']")
-    WebElement textOfResume;
     @FindBy(xpath = "//div[@title='GIT']//a[@class='material-icons close'][normalize-space()='Cross']")
     WebElement crossMark;
-    //form/div[2]/div[1]/div/div[1]/div[1]/div[1]/div[13]/a
-    @FindBy(xpath = "//*[.='GIT']")
-    WebElement isGitTextIsDisplaying;
+
     @FindBy(xpath = "//a[@href='/mnjuser/profile' and .='View profile']")
     WebElement viewProfile;
     @FindBy(xpath = "//div[@id='lazyKeySkills']//child::span[@class='chip typ-14Medium']")
     List<WebElement> lazyKeySkills;
-    @FindBy(xpath = "//ul[@class='Sdrop']/li/div")
-    List<WebElement> searchSuggestions;
 
-    @FindBy(xpath = "//i[.='deleteOneTheme']")
-    WebElement deleteResumeImg;
-    @FindBy(xpath = "//*[.='Resume has been successfully uploaded.']")
-    WebElement resumeUploadedSuccessfully;
-    @FindBy(xpath = "//*[.='Attached Resume has been successfully deleted.']")
-    WebElement resumeDeletedSuccessfully;
-
-    @FindBy(xpath = "//div[@class='action right-align']/following::button[@class='btn-dark-ot']")
-    WebElement deleteBtn;
     @FindBy(xpath = "//*[.='Key Skills have been successfully saved.']")
     WebElement keySkillsSaved;
 
@@ -90,22 +71,6 @@ public class NaukariProfileUpdatePage extends GenericMethods {
 
     }
 
-    public void deleteResumeImg() {
-
-        new WebDriverWait(getDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.elementToBeClickable(deleteResumeImg));
-        clickWithJS(deleteResumeImg);
-        new WebDriverWait(getDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.elementToBeClickable(deleteBtn));
-        clickWithJS(deleteBtn);
-    }
-
-    public void validateDeletedSuccessfully() {
-
-        assertEqualsText(resumeDeletedSuccessfully, "Attached Resume has been successfully deleted.");
-    }
-
-
     public void validateKeySkillSuccessMsg() {
         assertEqualsText(keySkillsSaved, "Key Skills have been successfully saved.");
     }
@@ -113,26 +78,29 @@ public class NaukariProfileUpdatePage extends GenericMethods {
     public void clickOnKeySkillLink() {
         click(viewProfile);
         writeLogInfo("user clicked on the view profile button ");
-
+        click(keySkillsLink);
     }
 
-
-    public void fileUpload() throws AWTException, InterruptedException {
-
-        new WebDriverWait(getDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.elementToBeClickable(fileUpload));
-        fileUpload.click();
-        writeLogInfo("user clicked on fil upload button ");
-        uploadFileUsingClipboard("file:///D:/Resume/Automation_5.5yrs.pdf");
-        new WebDriverWait(getDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.visibilityOf(resumeUploadedSuccessfully));
-        assertEqualsText(resumeUploadedSuccessfully, "Resume has been successfully uploaded.");
-
-    }
-
-    public void validateResumeUploadedSuccessfully() {
-        assertEqualsText(successText, "Automation_5.5yrs.pdf");
-
+    public void updateKeySkill() throws InterruptedException {
+        for (WebElement element : lazyKeySkills) {
+            String actValue = element.getText();
+            if (actValue.equals("GIT")) {
+                clickWithJS(editKeySkills);
+                Thread.sleep(3000);
+                clickWithJS(crossMark);
+                Thread.sleep(2000);
+                clickWithJS(saveBtn);
+                writeLogInfo("Skill removed successfully");
+            } else {
+                clickWithJS(editKeySkills);
+                addNewSkill.sendKeys("GIT");
+                getDriver().findElement(By.xpath("//html")).click(); // Confirm skill addition
+                Thread.sleep(3000);
+                clickWithJS(saveBtn);
+                validateKeySkillSuccessMsg();
+                writeLogInfo("Skill added successfully");
+            }
+        }
     }
 
     public void logout() throws InterruptedException {
@@ -141,38 +109,5 @@ public class NaukariProfileUpdatePage extends GenericMethods {
         click(logoutButton);
         writeLogInfo("logout Successfully");
     }
-
-    private void addSkill(String skill) throws InterruptedException {
-        clickWithJS(editKeySkills);
-        addNewSkill.sendKeys(skill);
-        getDriver().findElement(By.xpath("//html")).click(); // Confirm skill addition
-        clickWithJS(saveBtn);
-        validateKeySkillSuccessMsg();
-        writeLogInfo("Skill added successfully");
-    }
-
-    private void removeExistingSkill() throws InterruptedException {
-        clickWithJS(editKeySkills);
-        clickWithJS(crossMark);
-        clickWithJS(saveBtn);
-        writeLogInfo("Skill removed successfully");
-
-    }
-
-    public void updateKeySkills() throws InterruptedException {
-        for (int i = 0; i <2; i++) {
-            try {
-                if (isGitTextIsDisplaying.isDisplayed()) {
-                    writeLogInfo("skill is displayed, removing it...");
-                    removeExistingSkill();
-                }
-            } catch (NoSuchElementException e) {
-                writeLogInfo("Element not found, proceeding to add  skill.");
-            }
-            addSkill("GIT");
-        }
-
-    }
-
 
 }
