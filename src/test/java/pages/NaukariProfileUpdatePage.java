@@ -60,6 +60,12 @@ public class NaukariProfileUpdatePage extends GenericMethods {
     @FindBy(xpath = "//*[.='Key Skills have been successfully saved.']")
     WebElement keySkillsSaved;
 
+    @FindBy(xpath = "/html/body/div[6]/div[2]/div[1]/span")
+    WebElement cross;
+
+
+
+
     public void enterLoginDetails() {
         writeLogInfo("user landed on login page");
         waitForElementTobeEnterText(email, getProperty("username"));
@@ -82,27 +88,18 @@ public class NaukariProfileUpdatePage extends GenericMethods {
     }
 
     public void updateKeySkill() throws InterruptedException {
-        for (WebElement element : lazyKeySkills) {
-            String actValue = element.getText();
-            if (actValue.equals("GIT")) {
-                clickWithJS(editKeySkills);
-                Thread.sleep(3000);
-                clickWithJS(crossMark);
-                Thread.sleep(2000);
-                clickWithJS(saveBtn);
-                writeLogInfo("Skill removed successfully");
-            } else {
-                clickWithJS(editKeySkills);
-                addNewSkill.sendKeys("GIT");
-                getDriver().findElement(By.xpath("//html")).click(); // Confirm skill addition
-                Thread.sleep(3000);
-                clickWithJS(saveBtn);
-                validateKeySkillSuccessMsg();
-                writeLogInfo("Skill added successfully");
-            }
+        boolean hasGit = getElementsText(lazyKeySkills).contains("GIT");
+        clickWithJS(editKeySkills);
+        if (hasGit) {
+            clickWithJS(crossMark);
+        } else {
+            addNewSkill.sendKeys("GIT");
+            getDriver().findElement(By.xpath("//html")).click();
         }
+        clickWithJS(saveBtn);
+        Thread.sleep(3000);
+        clickWithJS(cross);
     }
-
     public void logout() throws InterruptedException {
         Thread.sleep(6000);
         clickWithJS(profileImg);

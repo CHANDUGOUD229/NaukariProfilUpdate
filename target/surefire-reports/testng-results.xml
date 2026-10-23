@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-07-01T00:33:55 IST" name="Surefire suite" finished-at="2025-07-01T00:34:15 IST" duration-ms="20166">
+  <suite started-at="2026-10-23T10:06:29 IST" name="Surefire suite" finished-at="2026-10-23T10:06:54 IST" duration-ms="25927">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@81d9a72]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@76505305]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-07-01T00:33:55 IST" name="Surefire test" finished-at="2025-07-01T00:34:15 IST" duration-ms="20166">
+    <test started-at="2026-10-23T10:06:29 IST" name="Surefire test" finished-at="2026-10-23T10:06:54 IST" duration-ms="25927">
       <class name="runner.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.TestRunner@81d9a72]" started-at="2025-07-01T00:33:55 IST" name="setUpClass" finished-at="2025-07-01T00:33:55 IST" duration-ms="714" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.TestRunner@76505305]" started-at="2026-10-23T10:06:29 IST" name="setUpClass" finished-at="2026-10-23T10:06:29 IST" duration-ms="605" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@150fc7a7]]>
+                <![CDATA[org.testng.TestRunner@115ca7de]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@81d9a72]" started-at="2025-07-01T00:33:55 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-07-01T00:34:15 IST" duration-ms="19137" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@76505305]" started-at="2026-10-23T10:06:29 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-10-23T10:06:54 IST" duration-ms="25165" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -34,10 +34,55 @@
               </value>
             </param>
           </params>
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <a class="nI-gNb-list-cta" title="Logout" rel="external" data-type="logoutLink" role="button" tabindex="0" style="background: yellow; border: 2px solid red;">...</a> is not clickable at point (1334, 520). Other element would receive the click: <div class="ltLayer open" style="z-index: 1005;"></div>
+  (Session info: chrome=154.0.8037.98)
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.12.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [47f0a44d96399a75b3bb3d4a10ce6969, clickElement {id=f.5662CA893D622DAFD6CF33B1F1528721.d.AB79CF8DC099E2F8F15A6122F6CBA75A.e.904}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 154.0.8037.98, chrome: {chromedriverVersion: 154.0.8037.92 (334b65d254cc..., userDataDir: C:\Users\chand\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51618}, goog:processID: 18856, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51618/devtoo..., se:cdpVersion: 154.0.8037.98, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (47f0a44d96399a75b3bb3d4a10ce6969)] -> xpath: //a[@class='nI-gNb-list-cta' and .='Logout']]
+Session ID: 47f0a44d96399a75b3bb3d4a10ce6969]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <a class="nI-gNb-list-cta" title="Logout" rel="external" data-type="logoutLink" role="button" tabindex="0" style="background: yellow; border: 2px solid red;">...</a> is not clickable at point (1334, 520). Other element would receive the click: <div class="ltLayer open" style="z-index: 1005;"></div>
+  (Session info: chrome=154.0.8037.98)
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.12.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [47f0a44d96399a75b3bb3d4a10ce6969, clickElement {id=f.5662CA893D622DAFD6CF33B1F1528721.d.AB79CF8DC099E2F8F15A6122F6CBA75A.e.904}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 154.0.8037.98, chrome: {chromedriverVersion: 154.0.8037.92 (334b65d254cc..., userDataDir: C:\Users\chand\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51618}, goog:processID: 18856, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51618/devtoo..., se:cdpVersion: 154.0.8037.98, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (47f0a44d96399a75b3bb3d4a10ce6969)] -> xpath: //a[@class='nI-gNb-list-cta' and .='Logout']]
+Session ID: 47f0a44d96399a75b3bb3d4a10ce6969
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy28.click(Unknown Source)
+at utility.GenericMethods.click(GenericMethods.java:312)
+at pages.NaukariProfileUpdatePage.logout(NaukariProfileUpdatePage.java:99)
+at stepDefinition.Steps.The_user_logs_out_successfully(Steps.java:48)
+at ✽.The user logs out successfully(file:///D:/Automation/NaukariProfilUpdate/./src/test/java/features/NaukariProfileUpdate.feature:13)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.TestRunner@81d9a72]" started-at="2025-07-01T00:34:15 IST" name="tearDownClass" finished-at="2025-07-01T00:34:15 IST" duration-ms="266" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.TestRunner@76505305]" started-at="2026-10-23T10:06:54 IST" name="tearDownClass" finished-at="2026-10-23T10:06:54 IST" duration-ms="106" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

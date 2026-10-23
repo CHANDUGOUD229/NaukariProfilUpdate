@@ -3,7 +3,8 @@ package utility;
 import io.cucumber.java.en_old.Ac;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
@@ -28,9 +29,8 @@ import java.util.concurrent.TimeoutException;
 
 public class GenericMethods extends DriverFactory {
 
-
-    public static Logger LOGGER = Logger.getLogger(GenericMethods.class);
-//    public static final Logger LOGGER = LogManager.getLogger(GenericMethods.class);
+    private static final Logger log =
+            LogManager.getLogger(GenericMethods.class);
 
     /**
      * This Method Will Return the screenShot
