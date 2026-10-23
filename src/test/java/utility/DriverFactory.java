@@ -30,7 +30,7 @@ public class DriverFactory extends PropertyFilesLoader {
                 prefs.put("credentials_enable_service", false);
                 prefs.put("profile.password_manager_enabled", false);
                 ChromeOptions options = new ChromeOptions();
-//                options.addArguments("--headless");
+                options.addArguments("--headless");
                 options.setExperimentalOption("prefs",prefs);
                 options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
                 options.addArguments("--disable-blink-features=AutomationControlled");
